@@ -17,10 +17,10 @@ import java.util.ArrayList;
 
 public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
-    ArrayList<String> updates;
+    ArrayList<FeedUpdate> updates;
 
 
-    public FeedsAdapter(ArrayList<String> bulletines) {
+    public FeedsAdapter(ArrayList<FeedUpdate> bulletines) {
         this.updates = bulletines;
     }
 
@@ -33,7 +33,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull FeedsAdapter.ViewHolder holder, int position) {
-        holder.bulletinSourceName.setText(updates.get(position));
+        holder.bulletinSourceName.setText(updates.get(position).getTitle());
     }
 
     @Override
