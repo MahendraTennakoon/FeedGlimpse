@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        loadFeedUpdates();
+    }
+
+    private void loadFeedUpdates() {
         feedsRecyclerView = findViewById(R.id.feeds_recycler_view);
 
         updates = new ArrayList<>();
