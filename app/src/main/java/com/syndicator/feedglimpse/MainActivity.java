@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-
     ArrayList<String> bulletines;
     RecyclerView feedsRecyclerView;
     RecyclerView.LayoutManager feedsLayoutManager;
