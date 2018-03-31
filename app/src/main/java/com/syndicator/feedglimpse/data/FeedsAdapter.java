@@ -1,4 +1,4 @@
-package com.syndicator.feedglimpse;
+package com.syndicator.feedglimpse.data;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,13 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.syndicator.feedglimpse.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by Mahendra on 3/31/2018.
  */
 
-class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
+public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
     ArrayList<String> updates;
 
