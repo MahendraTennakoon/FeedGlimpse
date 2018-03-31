@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
-    ArrayList<String> bulletines;
+    ArrayList<String> updates;
 
 
     public FeedsAdapter(ArrayList<String> bulletines) {
-        this.bulletines = bulletines;
+        this.updates = bulletines;
     }
 
     @NonNull
@@ -31,12 +31,12 @@ class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FeedsAdapter.ViewHolder holder, int position) {
-        holder.bulletinSourceName.setText(bulletines.get(position));
+        holder.bulletinSourceName.setText(updates.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return bulletines.size();
+        return updates.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
