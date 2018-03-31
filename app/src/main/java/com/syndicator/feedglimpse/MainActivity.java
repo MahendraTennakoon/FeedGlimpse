@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 import android.view.MenuItem;
 
+import com.syndicator.feedglimpse.data.FeedsAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> updates;
