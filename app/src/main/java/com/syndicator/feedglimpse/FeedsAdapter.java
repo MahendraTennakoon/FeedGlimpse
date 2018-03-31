@@ -13,24 +13,24 @@ import java.util.ArrayList;
  * Created by Mahendra on 3/31/2018.
  */
 
-class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
     ArrayList<String> bulletines;
 
 
-    public MainAdapter(ArrayList<String> bulletines) {
+    public FeedsAdapter(ArrayList<String> bulletines) {
         this.bulletines = bulletines;
     }
 
     @NonNull
     @Override
-    public MainAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FeedsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FeedsAdapter.ViewHolder holder, int position) {
         holder.bulletinSourceName.setText(bulletines.get(position));
     }
 
