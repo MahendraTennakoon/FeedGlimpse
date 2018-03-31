@@ -1,4 +1,4 @@
-package com.syndicator.feedglimpse;
+package com.syndicator.feedglimpse.ui;
 
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import android.view.MenuItem;
 
+import com.syndicator.feedglimpse.R;
 import com.syndicator.feedglimpse.core.FeedUpdates;
 import com.syndicator.feedglimpse.data.FeedUpdate;
 import com.syndicator.feedglimpse.data.FeedsAdapter;
