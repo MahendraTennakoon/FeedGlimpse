@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> bulletines;
+    ArrayList<String> updates;
     RecyclerView feedsRecyclerView;
     RecyclerView.LayoutManager feedsLayoutManager;
     RecyclerView.Adapter feedsAdapter;
@@ -21,17 +21,17 @@ public class MainActivity extends AppCompatActivity {
 
         feedsRecyclerView = findViewById(R.id.feeds_recycler_view);
 
-        bulletines = new ArrayList<>();
-        bulletines.add("Update 01");
-        bulletines.add("Update 02");
+        updates = new ArrayList<>();
+        updates.add("Update 01");
+        updates.add("Update 02");
 
         for (int i = 0; i < 100; i++) {
-            bulletines.add("Verge " + i);
+            updates.add("Verge " + i);
         }
 
         feedsRecyclerView.setHasFixedSize(true);
         feedsLayoutManager = new LinearLayoutManager(this);
-        feedsAdapter = new FeedsAdapter(bulletines);
+        feedsAdapter = new FeedsAdapter(updates);
         feedsRecyclerView.setLayoutManager(feedsLayoutManager);
         feedsRecyclerView.setAdapter(feedsAdapter);
     }
