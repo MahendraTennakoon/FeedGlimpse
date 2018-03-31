@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Feed Glimpse</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
 </resources>
