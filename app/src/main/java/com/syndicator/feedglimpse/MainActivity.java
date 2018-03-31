@@ -11,9 +11,13 @@ import java.util.ArrayList;
 
 import android.view.MenuItem;
 
+import com.syndicator.feedglimpse.core.FeedUpdates;
+import com.syndicator.feedglimpse.data.FeedUpdate;
+import com.syndicator.feedglimpse.data.FeedsAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> updates;
+    ArrayList<FeedUpdate> updates = new ArrayList<>();
     RecyclerView feedsRecyclerView;
     RecyclerView.LayoutManager feedsLayoutManager;
     RecyclerView.Adapter feedsAdapter;
@@ -33,13 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private void loadFeedUpdates() {
         feedsRecyclerView = findViewById(R.id.feeds_recycler_view);
 
-        updates = new ArrayList<>();
-        updates.add("Update 01");
-        updates.add("Update 02");
-
-        for (int i = 0; i < 100; i++) {
-            updates.add("Verge " + i);
-        }
+        FeedUpdates feedUpdates = new FeedUpdates();
+        updates = feedUpdates.requestAllFeeds();
 
         feedsRecyclerView.setHasFixedSize(true);
         feedsLayoutManager = new LinearLayoutManager(this);

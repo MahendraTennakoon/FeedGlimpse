@@ -1,4 +1,4 @@
-package com.syndicator.feedglimpse;
+package com.syndicator.feedglimpse.data;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,18 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.syndicator.feedglimpse.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by Mahendra on 3/31/2018.
  */
 
-class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
+public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
-    ArrayList<String> updates;
+    ArrayList<FeedUpdate> updates;
 
 
-    public FeedsAdapter(ArrayList<String> bulletines) {
+    public FeedsAdapter(ArrayList<FeedUpdate> bulletines) {
         this.updates = bulletines;
     }
 
@@ -31,7 +33,7 @@ class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FeedsAdapter.ViewHolder holder, int position) {
-        holder.bulletinSourceName.setText(updates.get(position));
+        holder.bulletinSourceName.setText(updates.get(position).getTitle());
     }
 
     @Override
