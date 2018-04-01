@@ -1,17 +1,16 @@
 package com.syndicator.feedglimpse.data;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Mahendra on 4/1/2018.
  */
 
 public class FeedUpdate {
+    @SerializedName("id")
     private int id;
+    @SerializedName("title")
     private String title;
-
-    public FeedUpdate(int id, String title) {
-        this.id = id;
-        this.title = title;
-    }
 
     public FeedUpdate() {
     }
