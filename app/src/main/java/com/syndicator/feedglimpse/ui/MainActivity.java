@@ -26,7 +26,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements Callback{
+public class MainActivity extends AppCompatActivity implements Callback {
 
     ArrayList<FeedUpdate> updates = new ArrayList<>();
     RecyclerView feedsRecyclerView;
@@ -37,13 +37,15 @@ public class MainActivity extends AppCompatActivity implements Callback{
     private ActionBarDrawerToggle mToggle;
     private Switch onOffSwitch;
 
+    FeedUpdates feedUpdates;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initSidebar();
-        FeedUpdates feedUpdates = new FeedUpdates(this);
+        feedUpdates = new FeedUpdates(this);
         feedUpdates.requestAllFeeds();
     }
 
@@ -72,7 +74,14 @@ public class MainActivity extends AppCompatActivity implements Callback{
 
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    Log.v("Switch State=", ""+isChecked);
+                    Log.v("Switch State=", "" + isChecked);
+                    if (isChecked) {
+                        NewsCategories.setCategorySports(true);
+                    } else {
+                        NewsCategories.setCategorySports(false);
+                    }
+
+                    feedUpdates.requestAllFeeds();
                 }
 
             });
@@ -83,17 +92,25 @@ public class MainActivity extends AppCompatActivity implements Callback{
     }
 
     @Override
-    public void onCallbackCompleted(String data) {
+    public void onCallbackCompleted(String[] data) {
 
-        InputStream stream = new ByteArrayInputStream(data.getBytes(StandardCharsets.UTF_8));
-        try {
-            updates = XMLParseUtil.parseFeed(stream);
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == null) {
+                break;
+            }
+            InputStream stream = new ByteArrayInputStream(data[i].getBytes(StandardCharsets.UTF_8));
+            try {
+                updates.addAll(XMLParseUtil.parseFeed(stream));
 
-            loadFeedUpdates();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+                loadFeedUpdates();
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
+//        for (String result: data) {
+//        }
     }
 }

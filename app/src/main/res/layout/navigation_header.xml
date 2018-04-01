@@ -18,7 +18,7 @@
         android:padding="10dp"
         android:selectAllOnFocus="false"
         android:singleLine="false"
-        android:text="Navigation Header"
+        android:text="Feed Categories"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 </RelativeLayout>
