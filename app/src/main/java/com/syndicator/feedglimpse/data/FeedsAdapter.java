@@ -1,5 +1,6 @@
-package com.syndicator.feedglimpse;
+package com.syndicator.feedglimpse.data;
 
+import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,19 +8,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.syndicator.feedglimpse.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by Mahendra on 3/31/2018.
  */
 
-class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
+public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
-    ArrayList<String> updates;
+    ArrayList<FeedUpdate> updates;
 
 
-    public FeedsAdapter(ArrayList<String> bulletines) {
+    public FeedsAdapter(ArrayList<FeedUpdate> bulletines) {
         this.updates = bulletines;
+    }
+
+    public void updateData(ArrayList<FeedUpdate> latest_updates) {
+        updates.clear();
+        updates.addAll(latest_updates);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -31,7 +40,8 @@ class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FeedsAdapter.ViewHolder holder, int position) {
-        holder.bulletinSourceName.setText(updates.get(position));
+        holder.bulletinSourceName.setText(updates.get(position).getTitle());
+        holder.txtDescription.setText(updates.get(position).getDescription());
     }
 
     @Override
@@ -42,11 +52,14 @@ class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView bulletinSourceName;
+        public TextView txtDescription;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             bulletinSourceName = itemView.findViewById(R.id.source_name);
+            txtDescription = itemView.findViewById(R.id.description);
         }
     }
+
 }
