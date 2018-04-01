@@ -41,6 +41,7 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull FeedsAdapter.ViewHolder holder, int position) {
         holder.bulletinSourceName.setText(updates.get(position).getTitle());
+        holder.txtDescription.setText(updates.get(position).getDescription());
     }
 
     @Override
@@ -51,11 +52,13 @@ public class FeedsAdapter extends RecyclerView.Adapter<FeedsAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView bulletinSourceName;
+        public TextView txtDescription;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             bulletinSourceName = itemView.findViewById(R.id.source_name);
+            txtDescription = itemView.findViewById(R.id.description);
         }
     }
 

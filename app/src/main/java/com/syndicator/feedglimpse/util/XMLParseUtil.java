@@ -71,6 +71,7 @@ public class XMLParseUtil {
                     if(isItem) {
                         FeedUpdate item = new FeedUpdate();
                         item.setTitle(title);
+                        item.setDescription(description);
                         items.add(item);
                     }
                     else {
