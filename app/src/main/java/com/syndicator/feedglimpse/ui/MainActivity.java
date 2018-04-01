@@ -1,22 +1,29 @@
 package com.syndicator.feedglimpse.ui;
 
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-import java.util.ArrayList;
-
 import android.view.MenuItem;
 
 import com.syndicator.feedglimpse.R;
+import com.syndicator.feedglimpse.core.Callback;
 import com.syndicator.feedglimpse.core.FeedUpdates;
 import com.syndicator.feedglimpse.data.FeedUpdate;
 import com.syndicator.feedglimpse.data.FeedsAdapter;
+import com.syndicator.feedglimpse.util.XMLParseUtil;
 
-public class MainActivity extends AppCompatActivity {
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements Callback{
 
     ArrayList<FeedUpdate> updates = new ArrayList<>();
     RecyclerView feedsRecyclerView;
@@ -32,15 +39,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initSidebar();
-        loadFeedUpdates();
+        FeedUpdates feedUpdates = new FeedUpdates(this);
+        feedUpdates.requestAllFeeds();
     }
 
     private void loadFeedUpdates() {
         feedsRecyclerView = findViewById(R.id.feeds_recycler_view);
-
-        FeedUpdates feedUpdates = new FeedUpdates();
-        updates = feedUpdates.requestAllFeeds();
-
         feedsRecyclerView.setHasFixedSize(true);
         feedsLayoutManager = new LinearLayoutManager(this);
         feedsAdapter = new FeedsAdapter(updates);
@@ -63,5 +67,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCallbackCompleted(String data) {
+
+        InputStream stream = new ByteArrayInputStream(data.getBytes(StandardCharsets.UTF_8));
+        try {
+            updates = XMLParseUtil.parseFeed(stream);
+
+            loadFeedUpdates();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
