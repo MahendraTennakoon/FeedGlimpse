@@ -4,20 +4,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/app_bar_switch_verge"
         android:title="The Verge"
         android:icon="@mipmap/ic_person_black_24dp"
         app:actionLayout="@layout/switch_item" />
 
-    <item
-        android:id="@+id/app_bar_switch_crunch"
-        android:title="TechCrunch"
-        android:icon="@mipmap/ic_settings_black_24dp"
-        app:actionLayout="@layout/switch_item" />
+    <!--<item-->
+        <!--android:title="TechCrunch"-->
+        <!--android:icon="@mipmap/ic_settings_black_24dp"-->
+        <!--app:actionLayout="@layout/switch_item" />-->
 
-    <item android:id="@+id/app_bar_switch_rumors"
-        android:title="Settings"
-        android:icon="@mipmap/ic_backspace_black_24dp"
-        app:actionLayout="@layout/switch_item"/>
+    <!--<item-->
+        <!--android:title="Settings"-->
+        <!--android:icon="@mipmap/ic_backspace_black_24dp"-->
+        <!--app:actionLayout="@layout/switch_item"/>-->
 
 </menu>
