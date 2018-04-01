@@ -5,5 +5,5 @@ package com.syndicator.feedglimpse.core;
  */
 
 public interface Callback {
-    public void onCallbackCompleted(String data);
+    public void onCallbackCompleted(String[] data);
 }
