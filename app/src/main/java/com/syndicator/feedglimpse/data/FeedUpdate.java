@@ -11,9 +11,20 @@ public class FeedUpdate {
     private int id;
     @SerializedName("title")
     private String title;
+    @SerializedName("description")
+    private String description;
 
     public FeedUpdate() {
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     public int getId() {
         return id;
