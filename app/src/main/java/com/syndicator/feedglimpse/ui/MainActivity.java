@@ -6,7 +6,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import com.syndicator.feedglimpse.R;
 import com.syndicator.feedglimpse.core.Callback;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements Callback{
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    private Switch onOffSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +67,19 @@ public class MainActivity extends AppCompatActivity implements Callback{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mToggle.onOptionsItemSelected(item)) {
+            onOffSwitch = (Switch) findViewById(R.id.app_bar_switch_verge);
+            onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Log.v("Switch State=", ""+isChecked);
+                }
+
+            });
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        return onOptionsItemSelected(item);
     }
 
     @Override
