@@ -7,18 +7,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by Mahendra on 4/1/2018.
  */
 
-public class Executor extends AsyncTask<Integer, Void, String> {
+public class Executor extends AsyncTask<Integer, Void, String[]> {
 
-    private String URL;
+    private ArrayList<String> URLs;
     private Callback callback;
 
-    public Executor(String URL, Callback cb) {
-        this.URL = URL;
+    public Executor(ArrayList<String> URLs, Callback cb) {
+        this.URLs = URLs;
         this.callback = cb;
     }
 
@@ -44,19 +46,25 @@ public class Executor extends AsyncTask<Integer, Void, String> {
     }
 
     @Override
-    protected String doInBackground(Integer... integers) {
-        String result = null;
-        try {
-            URL url = new URL(URL + (integers == null || integers.length == 0 ? "" : "/" + integers[0]));
-            result = getUrlConnectionResult(url);
-        } catch (IOException e) {
-            e.printStackTrace();
+    protected String[] doInBackground(Integer... integers) {
+        String[] result = new String[2];
+
+        String[] arrURLs = URLs.toArray(new String[URLs.size()]);
+
+        for (int i = 0; i < arrURLs.length; i++) {
+            try {
+                URL url = new URL(arrURLs[i] + (integers == null || integers.length == 0 ? "" : "/" + integers[0]));
+                result[i] = getUrlConnectionResult(url);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
         return result;
     }
 
     @Override
-    protected void onPostExecute(String s) {
+    protected void onPostExecute(String[] s) {
         this.callback.onCallbackCompleted(s);
     }
 }
