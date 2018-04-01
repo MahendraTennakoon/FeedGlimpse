@@ -18,17 +18,6 @@ public class FeedUpdates {
         this.callback = callback;
     }
 
-//    public ArrayList<FeedUpdate> requestAllFeeds() {
-//        FeedUpdate update = new FeedUpdate();
-//        update.setTitle("The Verge");
-//        ArrayList<FeedUpdate> updates = new ArrayList<>();
-//        for (int i = 0; i < 10; i++) {
-//            update.setId(i);
-//            updates.add(update);
-//        }
-//        return updates;
-//    }
-
     public void requestAllFeeds() {
         Executor executor = new Executor(BASE_URL, callback);
         executor.execute();
