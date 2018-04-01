@@ -1,10 +1,5 @@
 package com.syndicator.feedglimpse.core;
 
-import com.syndicator.feedglimpse.data.FeedUpdate;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Mahendra on 4/1/2018.
  */
