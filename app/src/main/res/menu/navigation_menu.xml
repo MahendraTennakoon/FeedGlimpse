@@ -8,14 +8,4 @@
         android:icon="@mipmap/ic_person_black_24dp"
         app:actionLayout="@layout/switch_item" />
 
-    <!--<item-->
-        <!--android:title="TechCrunch"-->
-        <!--android:icon="@mipmap/ic_settings_black_24dp"-->
-        <!--app:actionLayout="@layout/switch_item" />-->
-
-    <!--<item-->
-        <!--android:title="Settings"-->
-        <!--android:icon="@mipmap/ic_backspace_black_24dp"-->
-        <!--app:actionLayout="@layout/switch_item"/>-->
-
 </menu>
