@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements Callback {
         feedsRecyclerView = findViewById(R.id.feeds_recycler_view);
         feedsRecyclerView.setHasFixedSize(true);
         feedsLayoutManager = new LinearLayoutManager(this);
-        feedsAdapter = new FeedsAdapter(updates);
+        feedsAdapter = new FeedsAdapter(updates,this);
         feedsRecyclerView.setLayoutManager(feedsLayoutManager);
         feedsRecyclerView.setAdapter(feedsAdapter);
     }
