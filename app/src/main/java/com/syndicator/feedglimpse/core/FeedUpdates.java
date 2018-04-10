@@ -19,6 +19,9 @@ public class FeedUpdates {
         this.callback = callback;
     }
 
+    /**
+     * Request updates from all available feeds.
+     */
     public void requestAllFeeds() {
         URLs = new ArrayList<>();
         URLs.add(BASE_URL);

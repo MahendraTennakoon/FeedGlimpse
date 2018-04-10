@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements Callback {
         setContentView(R.layout.activity_main);
 
         initSidebar();
+
+        // MainActivity implements the Callback interface and hence can be passed as an argument
+        // to Feedupdates constructor.
         feedUpdates = new FeedUpdates(this);
         feedUpdates.requestAllFeeds();
     }
