@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements Callback {
     }
 
     private void initSidebar() {
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mDrawerLayout = findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements Callback {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mToggle.onOptionsItemSelected(item)) {
-            onOffSwitch = (Switch) findViewById(R.id.app_bar_switch_verge);
+            onOffSwitch = findViewById(R.id.app_bar_switch_verge);
             onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
                 @Override
@@ -109,8 +109,5 @@ public class MainActivity extends AppCompatActivity implements Callback {
                 e.printStackTrace();
             }
         }
-
-//        for (String result: data) {
-//        }
     }
 }
