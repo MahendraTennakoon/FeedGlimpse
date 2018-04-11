@@ -7,12 +7,16 @@ package com.syndicator.feedglimpse.ui;
 public class NewsCategories {
     private static Boolean categoryWorld = true;
     private static Boolean categorySports = false;
+    private static Boolean categoryTechnollogy = false;
 
     private static final String WORLD_NEWS_URL =
             "http://rss.nytimes.com/services/xml/rss/nyt/World.xml";
 
     private static final String SPORTS_NEWS_URL =
             "http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml";
+
+    private static final String TECHNOLOGY_NEWS_URL =
+            "http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml";
 
     public static void setDefaultCategories() {
         categoryWorld = true;
@@ -41,5 +45,17 @@ public class NewsCategories {
 
     public static String getSportsNewsUrl() {
         return SPORTS_NEWS_URL;
+    }
+
+    public static Boolean getCategoryTechnollogy() {
+        return categoryTechnollogy;
+    }
+
+    public static void setCategoryTechnollogy(Boolean categoryTechnollogy) {
+        NewsCategories.categoryTechnollogy = categoryTechnollogy;
+    }
+
+    public static String getTechnologyNewsUrl() {
+        return TECHNOLOGY_NEWS_URL;
     }
 }

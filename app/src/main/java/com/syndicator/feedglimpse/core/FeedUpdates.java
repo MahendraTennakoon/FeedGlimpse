@@ -30,6 +30,10 @@ public class FeedUpdates {
             URLs.add(NewsCategories.getSportsNewsUrl());
         }
 
+        if (NewsCategories.getCategoryTechnollogy()) {
+            URLs.add(NewsCategories.getTechnologyNewsUrl());
+        }
+
         Executor executor = new Executor(URLs, callback);
         executor.execute();
     }

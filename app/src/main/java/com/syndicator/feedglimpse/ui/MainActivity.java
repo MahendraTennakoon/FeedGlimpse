@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements Callback {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private Switch onOffSwitch;
+    private Switch swTech;
 
     FeedUpdates feedUpdates;
 
@@ -82,6 +83,23 @@ public class MainActivity extends AppCompatActivity implements Callback {
                         NewsCategories.setCategorySports(true);
                     } else {
                         NewsCategories.setCategorySports(false);
+                    }
+
+                    feedUpdates.requestAllFeeds();
+                }
+
+            });
+
+            swTech = findViewById(R.id.app_bar_switch_technology);
+            swTech.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Log.v("Switch State=", "" + isChecked);
+                    if (isChecked) {
+                        NewsCategories.setCategoryTechnollogy(true);
+                    } else {
+                        NewsCategories.setCategoryTechnollogy(false);
                     }
 
                     feedUpdates.requestAllFeeds();

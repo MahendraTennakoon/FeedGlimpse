@@ -8,4 +8,8 @@
         android:icon="@mipmap/ic_person_black_24dp"
         app:actionLayout="@layout/switch_item" />
 
+    <item
+        android:title="Technology"
+        android:icon="@mipmap/ic_person_black_24dp"
+        app:actionLayout="@layout/switch_technology" />
 </menu>
