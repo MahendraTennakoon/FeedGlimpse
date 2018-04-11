@@ -1,6 +1,8 @@
 package com.syndicator.feedglimpse.util;
 
 import android.util.Log;
+import android.util.Xml;
+
 import com.syndicator.feedglimpse.data.FeedUpdate;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
  */
 
 public class XMLParseUtil {
+
     public static ArrayList<FeedUpdate> parseFeed(InputStream inputStream) throws XmlPullParserException, IOException {
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -45,6 +48,9 @@ public class XMLParseUtil {
                         } else if (name.equalsIgnoreCase("title")) {
                             Log.i("Attribute", "title");
                             item.setTitle(xpp.nextText().trim());
+                        } else if (name.equalsIgnoreCase("link")) {
+                            Log.i("Attribute", "link");
+                            item.setUrl(xpp.nextText().trim());
                         }
                     }
                     break;

@@ -13,6 +13,7 @@ public class FeedUpdate {
     private String title;
     @SerializedName("description")
     private String description;
+    private String url;
 
     public FeedUpdate() {
     }
@@ -40,6 +41,16 @@ public class FeedUpdate {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        if (url.length() > 2) {
+            this.url = url;
+        }
     }
 
 
