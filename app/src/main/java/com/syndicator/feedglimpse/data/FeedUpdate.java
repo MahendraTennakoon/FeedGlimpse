@@ -48,7 +48,9 @@ public class FeedUpdate {
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        if (url.length() > 2) {
+            this.url = url;
+        }
     }
 
 
